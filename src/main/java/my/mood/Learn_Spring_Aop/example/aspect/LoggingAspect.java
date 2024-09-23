@@ -16,20 +16,20 @@ public class LoggingAspect {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Before("execution(* my.mood.Learn_Spring_Aop.example.*.*.*(..))")
+	@Before("my.mood.Learn_Spring_Aop.example.aspect.CommonPointcutAspect.AllPackageConfig()")
 	public void CallAspectMethodBefore(JoinPoint joinPoint) {
 		logger.info("Before - {} Aspect Method is called - {}"
 				, joinPoint, joinPoint.getArgs());
 	}
 	
-	@After("execution(* my.mood.Learn_Spring_Aop.example.*.*.*(..))")
+	@After("my.mood.Learn_Spring_Aop.example.aspect.CommonPointcutAspect.BusinessAndDataPackageConfig()")
 	public void CallAspectMethodAfter(JoinPoint joinPoint) {
 		logger.info("After - {} Aspect Method is called - {}"
 				, joinPoint, joinPoint.getArgs());
 	}
 	
 	@AfterReturning(
-			pointcut = "execution(* my.mood.Learn_Spring_Aop.example.*.*.*(..))",
+			pointcut = "my.mood.Learn_Spring_Aop.example.aspect.CommonPointcutAspect.DataPackageConfig()",
 			returning = "returnValue"
 			)
 	public void CallAspectMethodAfterReturning(JoinPoint joinPoint, Object returnValue) {
@@ -37,7 +37,7 @@ public class LoggingAspect {
 	}
 	
 	@AfterThrowing(
-			pointcut = "execution(* my.mood.Learn_Spring_Aop.example.*.*.*(..))",
+			pointcut = "my.mood.Learn_Spring_Aop.example.aspect.CommonPointcutAspect.BusinessPackageConfig()",
 			throwing = "exception"
 			)
 	public void CallAspectMethodAfterThrowing(JoinPoint joinPoint, Exception exception) {

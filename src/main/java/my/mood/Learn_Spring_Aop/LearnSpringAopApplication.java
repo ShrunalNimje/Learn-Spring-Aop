@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import my.mood.Learn_Spring_Aop.example.business.BusinessService;
+import my.mood.Learn_Spring_Aop.example.business.BusinessService1;
 
 @SpringBootApplication
 public class LearnSpringAopApplication implements CommandLineRunner {
@@ -17,13 +18,17 @@ public class LearnSpringAopApplication implements CommandLineRunner {
 	@Autowired
 	private BusinessService businessService;
 	
+	@Autowired
+	private BusinessService1 businessService1;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(LearnSpringAopApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("Value is {}", businessService.CalculateMax());
+		logger.info("BusinessService Value is {}", businessService.CalculateMax());
+		logger.info("BusinessService1 Value is {}", businessService1.CalculateMin());
 	}
 
 }
