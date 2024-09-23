@@ -15,6 +15,7 @@ public class BusinessService {
 	
 	public int CalculateMax() {
 		int [] max = dataService.RetrieveData();
+		// throw new RuntimeException("Something wrong going to happen!");
 		return Arrays.stream(max).max().orElse(0);
 	}
 	

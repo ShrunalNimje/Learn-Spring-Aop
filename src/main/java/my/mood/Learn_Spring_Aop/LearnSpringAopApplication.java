@@ -23,7 +23,7 @@ public class LearnSpringAopApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("Value is : " + businessService.CalculateMax());
+		logger.info("Value is {}", businessService.CalculateMax());
 	}
 
 }
